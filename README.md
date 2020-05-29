@@ -9,28 +9,35 @@ Send SMS and Viber message via TurboSMS ([turbosms.ua](https://turbosms.ua/)) us
 ## Installation
 
 Require this package with composer.
+
 [ru] Установите пакет через композер.
 
 ``` bash
 composer require daaner/turbosms
 ```
 
+
 If you don't use auto-discovery, add the ServiceProvider to the providers array in `config/app.php`
-Если вы не используете автоопределение - добавьте сервис провайдер в конфигурационный файл.
+
+[ru] Если вы не используете автоопределение - добавьте сервис провайдер в конфигурационный файл.
 
 ```php
 Daaner\TurboSMS\TurboSMSServiceProvider::class,
 ```
 
+
 Add the `TurboSMS` facade to your facades array:
-Если нужно - добавьте фасад:
+
+[ru] Если нужно - добавьте фасад:
 
 ```php
 'TurboSMS' => Daaner\TurboSMS\Facades\TurboSMS::class,
 ```
 
+
 Copy the package config to your local config with the publish command:
-Выполните публикацию ассетов командой:
+
+[ru] Выполните публикацию ассетов командой:
 
 ``` bash
 php artisan vendor:publish --provider="Daaner\TurboSMS\TurboSMSServiceProvider"
