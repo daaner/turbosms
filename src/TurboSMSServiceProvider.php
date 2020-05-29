@@ -32,7 +32,7 @@ class TurboSMSServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/tirbosms.php', 'turbosms');
+        $this->mergeConfigFrom(__DIR__.'/../config/turbosms.php', 'turbosms');
 
         $this->app->singleton('turbosms', function () {
             return $this->app->make(TurboSMS::class);
