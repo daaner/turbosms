@@ -1,0 +1,42 @@
+{
+    "name": "daaner/turbosms",
+    "description": "TurboSMS payments for Laravel",
+    "keywords": [
+        "daaner",
+        "turbosms",
+        "sms",
+        "laravel-sms"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daan",
+            "email": "daan@ukr.net"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.5",
+        "laravel/framework": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Daaner\\TurboSMS\\Facades\\": "src/Facades",
+            "Daaner\\TurboSMS\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Daaner\\UnitPay\\TurboSMSServiceProvider"
+            ],
+            "aliases": {
+                "TurboSMS": "Daaner\\TurboSMS\\Facades\\TurboSMS"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
