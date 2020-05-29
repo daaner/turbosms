@@ -8,7 +8,7 @@ class TurboSMS
 {
 
     protected $api;
-    protected $base_uri = 'https://api.turbosms.ua/';
+    protected $baseUri = 'https://api.turbosms.ua/';
 
     /**
      * TurboSMS constructor.
@@ -19,29 +19,34 @@ class TurboSMS
     }
 
     /**
+     * @param null $api
      * @return integer
      */
-    public function getBalance()
-    {
+    public function getBalance($api = null) {
         $module = 'user';
         $method = 'balance.json';
 
-        $url = $this->base_uri . $module . '/' . $method;
+        $url = $this->baseUri . $module . '/' . $method;
         $body = [];
 
-        $answers = $this->getResponse($url, $body);
+        $answers = $this->getResponse($url, $body, $api);
 
         return $answers;
     }
 
 
 
-    public function getResponse($url, $body) {
+    public function getResponse($url, $body, $api = null) {
+
+      if (!$api) {
+        $api = $this->api;
+      }
+
       $response = Http::timeout(3)
           ->retry(2, 200)
           ->withHeaders([
               'Accept' => 'application/json',
-              'Authorization' => 'Bearer ' . $this->api,
+              'Authorization' => 'Bearer ' . $api,
               'Content-Type' => 'application/json',
           ])->post($url, $body);
 

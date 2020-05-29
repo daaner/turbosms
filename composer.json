@@ -1,6 +1,6 @@
 {
     "name": "daaner/turbosms",
-    "description": "TurboSMS payments for Laravel",
+    "description": "TurboSMS for Laravel 7+",
     "keywords": [
         "daaner",
         "turbosms",
