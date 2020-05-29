@@ -6,8 +6,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static string handle(Request $request)
- * @method static string getBalance()
+ * @method static int getBalance()
+ *
+ * @method static array getItemsStatus($messageId)
+ * @method static array getResponse($url, $body)
+ * @method static array sendMessages($recipients, $text, $type = null)
+ *
+ * @method static void setApi($api)
+ * @method static void setSMSSender($smsSender)
+ * @method static void setViberSender($viberSender)
+ *
+ * @method static void setViberText($viberReplaceText)
+ * @method static void setTTL($ttl)
+ * @method static void setImageURL($image)
+ * @method static void setCaption($caption)
+ * @method static void setAction($action)
+ * @method static void setCountClicks($countClicks)
+ * @method static void setTransactional($isTransactional)
  *
  * @see \Daaner\TurboSMS
  */

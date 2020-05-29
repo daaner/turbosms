@@ -21,7 +21,7 @@ class TurboSMSServiceProvider extends ServiceProvider
             __DIR__.'/../resources/lang' => "{$this->app['path.lang']}/vendor/turbosms",
         ]);
 
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang/', 'turbosms.php');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang/', 'turbosms');
     }
 
 
