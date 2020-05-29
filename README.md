@@ -1,61 +1,54 @@
-# Laravel TurboSMS API gateway http://turbosms.ua
+# Laravel TurboSMS API gateway
 
 Send SMS and Viber message via TurboSMS ([turbosms.ua](https://turbosms.ua/)) using this Laravel framework package ([Laravel](https://laravel.com)).
 
+Удобный пакет для отправки и проверки SMS и Viber сообщений через сервис TurboSMS.ua
+
 
 #### Laravel > 7, PHP >= 7.2.5
+Минимальная версия Laravel `7.0`, для более низкой версии нужно использовать `guzzle/guzzle`
 
 
-## Installation
-
-Require this package with composer.
-
-[ru] Установите пакет через композер.
+## Установка
+Установите пакет через композер.
 
 ``` bash
 composer require daaner/turbosms
 ```
 
 
-If you don't use auto-discovery, add the ServiceProvider to the providers array in `config/app.php`
-
-[ru] Если вы не используете автоопределение - добавьте сервис провайдер в конфигурационный файл.
+Если вы НЕ используете autodiscover - добавьте сервис провайдер в конфигурационный файл `config/app.php`.
 
 ```php
 Daaner\TurboSMS\TurboSMSServiceProvider::class,
 ```
 
 
-Add the `TurboSMS` facade to your facades array:
-
-[ru] Если нужно - добавьте фасад:
+Добавьте фасад `TurboSMS` в массив в `config/app.php`:
 
 ```php
 'TurboSMS' => Daaner\TurboSMS\Facades\TurboSMS::class,
 ```
 
 
-Copy the package config to your local config with the publish command:
-
-[ru] Выполните публикацию ассетов командой:
+Выполните публикацию конфига и логализационных файлов командой:
 
 ``` bash
 php artisan vendor:publish --provider="Daaner\TurboSMS\TurboSMSServiceProvider"
 ```
 
-## Configuration
+## Конфигураци
 
-Once you have published the configuration files, please edit the config file in `config/turbosms.php`.
+После публикации ресурсов поправьте файл `config/turbosms.php` и заполните `.env` новыми полями.
 
-- Create an account on [turbosms.ua](https://turbosms.ua)
-- Add your project, copy the `HTTP API`, params and paste into `config/turbosms.php`
-- After the configuration has been published, edit `config/turbosms.php`
+- Создайте аккаунт на сайте [turbosms.ua](https://turbosms.ua)
+- Скопируйте `HTTP API` в настройках шлюза и добавьте в соответствующий параметр в `config/turbosms.php`
 
 __NOTE__
 На странице настройки шлюза обязательно нужно получить токен API и включить галочку `HTTP API`
 
 
-## Usage and API
+## Использование и API
 
 ### API
 
