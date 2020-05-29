@@ -30,7 +30,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Daaner\\UnitPay\\TurboSMSServiceProvider"
+                "Daaner\\TurboSMS\\TurboSMSServiceProvider"
             ],
             "aliases": {
                 "TurboSMS": "Daaner\\TurboSMS\\Facades\\TurboSMS"
