@@ -24,7 +24,6 @@ class TurboSMSServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang/', 'turbosms');
     }
 
-
     /**
      * Register services.
      *
@@ -39,6 +38,5 @@ class TurboSMSServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('turbosms', 'TurboSMS');
-
     }
 }
