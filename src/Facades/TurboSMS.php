@@ -11,10 +11,13 @@ use Illuminate\Support\Facades\Facade;
  * @method static array getItemsStatus($messageId)
  * @method static array getResponse($url, $body)
  * @method static array sendMessages($recipients, $text, $type = null)
+ * @method static array getResponse($url, $body)
  *
  * @method static void setApi($api)
  * @method static void setSMSSender($smsSender)
  * @method static void setViberSender($viberSender)
+ *
+ * @method static void setStartTime($startTime)
  *
  * @method static void setViberText($viberReplaceText)
  * @method static void setTTL($ttl)

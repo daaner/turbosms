@@ -5,12 +5,12 @@ namespace Daaner\TurboSMS;
 use Illuminate\Support\Facades\Http;
 use Daaner\TurboSMS\Contracts\TurboSMSInterface;
 use Daaner\TurboSMS\Traits\ViberAddition;
+use Daaner\TurboSMS\Traits\StartTimeAddition;
 
-use Carbon\Carbon;
 
 class TurboSMS implements TurboSMSInterface
 {
-    use ViberAddition;
+    use ViberAddition, StartTimeAddition;
 
 
     protected $api;
@@ -113,6 +113,11 @@ class TurboSMS implements TurboSMSInterface
         if ($type == 'both') {
             $body = $this->bodySMS($body, $text);
             $body = $this->bodyViber($body, $text);
+        }
+
+        //Доставка в определенное время
+        if ($this->startTime) {
+          $body['start_time'] = $this->startTime;
         }
 
         $answers = $this->getResponse($url, $body);

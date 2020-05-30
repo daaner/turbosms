@@ -67,6 +67,16 @@ TurboSMS::setSMSSender('TAXI');
 TurboSMS::setViberSender('Mobibon2');
 ```
 
+- `setStartTime($startTime)` - `carbon||string` дата и время отправки сообщения.
+В конфиге задается режим сна и промежуток времени. В режиме сна, сообщения будут откладыватся
+```php
+TurboSMS::setStartTime('2020-10-10 08:22');
+
+//or
+
+TurboSMS::setStartTime(Carbon\Carbon::now()->addMinutes(5));
+```
+
 Настройки для отправки через __Viber__ или для __гибридной__ отправки ([Более детально](https://turbosms.ua/api.html))
 - `setViberText($viberReplaceText)` - `string` замена текста в вайбер при гибридных отправках (заменяет текст и при простых отправках в Viber)
 ```php
@@ -172,15 +182,60 @@ $sended = TurboSMS::sendMessages('+38(066) 777-88-99', 'Отправляем SMS
 // or
 $sended = TurboSMS::sendMessages('+38(066) 777-88-99', 'Отправляем Viber', 'viber');
 $sended = TurboSMS::sendMessages('+38(066) 777-88-99', 'Гибридная отправка. Сразу в Viber, если не прийдет - уйдет SMS', 'both');
+```
 
-dd($sended);
+#### Полностью кастомная отправка. Позволяет самому сформировать URL и тело запроса.
+`TurboSMS::getResponse($url, $body)`
+```php
+$url = 'https://api.turbosms.ua/NEW_MODULE/NEW_METHOD';
+$body = [
+  ...
+];
+TurboSMS::setApi('MY_TURBOSMS_API_KEY_2');
+$custom = TurboSMS::getResponse($url, $body);
+
 ```
 
 
 
-## Добавить
+## Примеры использования
+```php
+use TurboSMS;
 
-[ ] - Проверка даты меньше текущей
+...
+
+//простая отправка
+$sms = TurboSMS::sendMessages('380667778899', 'TurboSMS приветствует Вас!');
+$viber = TurboSMS::sendMessages('380667778899', 'TurboSMS приветствует Вас!', 'viber');
+
+
+//отправка с параметрами
+//если сообщение будет получено в вайбере, SMS не уйдет
+//если вайбер отсутствует - будет отправлена SMS
+$ph = collect(); //массив номеров телефонов
+$ph->push('+38(066) 666-55-44'); //валидный номер
+$ph->push('+38 (099)a999-88-77 ');  //валидный номер
+$ph->push(' телефон правильный, отправится даже с этим текстом: +38-099-11122-33 ');  //валидный номер
+$ph->push('телефон с ошибкой (без кода страны): 099-111-22-33');  //не валидный номер
+$ph->push('лишние цифры после номера: 38-099-333-44-33 добавочный 5'); //не валидный номер
+$ph->push('лишние цифры до номера: 55 улица, 38-099-333-44-33'); //не валидный номер
+
+TurboSMS::setViberSender('Mobibon');
+TurboSMS::setSMSSender('TAXI');
+
+TurboSMS::setTTL(86400);
+TurboSMS::setImageURL('http://lorempixel.com/400/400/');
+TurboSMS::setCaption('Открыть сайт с котиками');
+TurboSMS::setAction('https://www.google.com');
+TurboSMS::setCountClicks(1);
+TurboSMS::setTransactional(1);
+TurboSMS::setStartTime('lalala'); //проигнорируется
+TurboSMS::setStartTime('2020-10-10 08:22'); //установит дату и время отправки, если она больше текущей
+TurboSMS::setViberText('Этот текст будет получен только в Viber');
+$sended = TurboSMS::sendMessages($ph, 'Привет в SMS. В вайбере не отправится', 'both');
+
+```
+
 
 
 ## Changelog
