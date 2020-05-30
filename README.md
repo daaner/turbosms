@@ -31,7 +31,7 @@ Daaner\TurboSMS\TurboSMSServiceProvider::class,
 ```
 
 
-Выполните публикацию конфига и логализационных файлов командой:
+Выполните публикацию конфига и локализационных файлов командой:
 
 ``` bash
 php artisan vendor:publish --provider="Daaner\TurboSMS\TurboSMSServiceProvider"
@@ -68,7 +68,7 @@ TurboSMS::setViberSender('Mobibon2');
 ```
 
 - `setStartTime($startTime)` - `carbon||string` дата и время отправки сообщения.
-В конфиге задается режим сна и промежуток времени. В режиме сна, сообщения будут откладыватся
+В конфиге задается режим сна и промежуток времени. В режиме сна, сообщения будут откладываться
 ```php
 TurboSMS::setStartTime('2020-10-10 08:22');
 
@@ -78,7 +78,7 @@ TurboSMS::setStartTime(Carbon\Carbon::now()->addMinutes(5));
 ```
 
 Настройки для отправки через __Viber__ или для __гибридной__ отправки ([Более детально](https://turbosms.ua/api.html))
-- `setViberText($viberReplaceText)` - `string` замена текста в вайбер при гибридных отправках (заменяет текст и при простых отправках в Viber)
+- `setViberText($viberReplaceText)` - `string` замена текста в Вайбер при гибридных отправках (заменяет текст и при простых отправках в Viber)
 ```php
 TurboSMS::setViberText('Этот текст будет получен только в Viber');
 ```
@@ -142,7 +142,7 @@ $arr = collect();
 $arr->push('FIRST_MESSAGE_ID');
 $arr->push('SECOND_MESSAGE_ID');
 $arr->push('XXX_MESSAGE_ID');
-$status = TurboSMS::getItemStatus($$arr);
+$status = TurboSMS::getItemStatus($arr);
 
 dd($status);
 ```
@@ -162,7 +162,7 @@ dd($status);
       "response_status" => "OK"
     ],
     1 => [
-      "message_id" => "c91a1593-5eca-0cd0-cab1-a41c8a9a22c2"
+      "message_id" => "c91a1593-****-0cd0-****-a41c8a9a22c2"
       "response_code" => 414
       "response_status" => "NOT_ALLOWED_MESSAGE_ID"
     ]
@@ -181,7 +181,7 @@ $sended = TurboSMS::sendMessages('+38(066) 777-88-99', 'Отправляем SMS
 
 // or
 $sended = TurboSMS::sendMessages('+38(066) 777-88-99', 'Отправляем Viber', 'viber');
-$sended = TurboSMS::sendMessages('+38(066) 777-88-99', 'Гибридная отправка. Сразу в Viber, если не прийдет - уйдет SMS', 'both');
+$sended = TurboSMS::sendMessages('+38(066) 777-88-99', 'Гибридная отправка. Сразу в Viber, при ошибке - SMS', 'both');
 ```
 
 #### Полностью кастомная отправка. Позволяет самому сформировать URL и тело запроса.
@@ -210,15 +210,15 @@ $viber = TurboSMS::sendMessages('380667778899', 'TurboSMS приветствуе
 
 
 //отправка с параметрами
-//если сообщение будет получено в вайбере, SMS не уйдет
-//если вайбер отсутствует - будет отправлена SMS
+//если сообщение будет получено в Вайбере, SMS отправки не произойдет
+//если Вайбер на номере не доступен - будет отправлена только SMS
 $ph = collect(); //массив номеров телефонов
 $ph->push('+38(066) 666-55-44'); //валидный номер
 $ph->push('+38 (099)a999-88-77 ');  //валидный номер
 $ph->push(' телефон правильный, отправится даже с этим текстом: +38-099-11122-33 ');  //валидный номер
-$ph->push('телефон с ошибкой (без кода страны): 099-111-22-33');  //не валидный номер
-$ph->push('лишние цифры после номера: 38-099-333-44-33 добавочный 5'); //не валидный номер
-$ph->push('лишние цифры до номера: 55 улица, 38-099-333-44-33'); //не валидный номер
+$ph->push('телефон с ошибкой (без кода страны): 099-111-22-33');  //невалидный номер
+$ph->push('лишние цифры после номера: 38-099-333-44-33 добавочный 5'); //невалидный номер
+$ph->push('лишние цифры до номера: 55 улица, 38-099-333-44-33'); //невалидный номер
 
 TurboSMS::setViberSender('Mobibon');
 TurboSMS::setSMSSender('TAXI');
@@ -229,10 +229,10 @@ TurboSMS::setCaption('Открыть сайт с котиками');
 TurboSMS::setAction('https://www.google.com');
 TurboSMS::setCountClicks(1);
 TurboSMS::setTransactional(1);
-TurboSMS::setStartTime('lalala'); //проигнорируется
+TurboSMS::setStartTime('lalala'); //про игнорируется
 TurboSMS::setStartTime('2020-10-10 08:22'); //установит дату и время отправки, если она больше текущей
 TurboSMS::setViberText('Этот текст будет получен только в Viber');
-$sended = TurboSMS::sendMessages($ph, 'Привет в SMS. В вайбере не отправится', 'both');
+$sended = TurboSMS::sendMessages($ph, 'Привет в SMS. В Вайбере не отправится', 'both');
 
 ```
 
