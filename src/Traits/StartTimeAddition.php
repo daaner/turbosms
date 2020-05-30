@@ -6,19 +6,18 @@ use Carbon\Carbon;
 
 trait StartTimeAddition
 {
-
     /**
-      * @see https://turbosms.ua/api.html
-      */
+     * @see https://turbosms.ua/api.html
+     */
     protected $startTime;
-
 
     /**
      * @return string||null
      */
-    public function setStartTime($startTime) {
+    public function setStartTime($startTime)
+    {
         //ошибка в дате отправки, игнорируем установку
-        if (!$startTime instanceof Carbon) {
+        if (! $startTime instanceof Carbon) {
             try {
                 $startTime = Carbon::createFromFormat('Y-m-d H:i', $startTime);
             } catch (\Exception $e) {
@@ -43,10 +42,7 @@ trait StartTimeAddition
         }
 
         $this->startTime = $startTime->format('Y-m-d H:i');
+
         return true;
     }
-
-
-
-
 }
