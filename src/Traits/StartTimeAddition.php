@@ -32,7 +32,7 @@ trait StartTimeAddition
 
         if (config('turbosms.sleep_mode') && config('turbosms.max_hour') > config('turbosms.min_hour')) {
             // уже поздно, отправляем завтра утром
-            if ($startTime->hour >= config('turbosms.max_hour')) {
+            if ($startTime->hour > config('turbosms.max_hour')) {
                 $startTime = $startTime->addDay()->hour(config('turbosms.min_hour'));
             }
             //сегодня рано, отправляем позже
