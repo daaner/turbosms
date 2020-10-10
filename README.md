@@ -135,14 +135,14 @@ dd($balance);
 #### Получение статуса `message_id` принимает `array || string`
 
 ```php
-$status = TurboSMS::getItemStatus($messageId);
+$status = TurboSMS::getItemsStatus($messageId);
 
 //or
 $arr = collect();
 $arr->push('FIRST_MESSAGE_ID');
 $arr->push('SECOND_MESSAGE_ID');
 $arr->push('XXX_MESSAGE_ID');
-$status = TurboSMS::getItemStatus($arr);
+$status = TurboSMS::getItemsStatus($arr);
 
 dd($status);
 ```
