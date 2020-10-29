@@ -16,47 +16,52 @@ trait ViberAddition
     protected $viberReplaceText;
 
     /**
-     * @return int||null
+     * @param int $ttl
+     * @return this
      */
     public function setTTL($ttl)
     {
         $this->ttl = (int) $ttl;
 
-        return true;
+        return $this;
     }
 
     /**
-     * @return string||null
+     * @param string $image
+     * @return this
      */
     public function setImageURL($image)
     {
         $this->imageUrl = $image;
 
-        return true;
+        return $this;
     }
 
     /**
-     * @return string||null
+     * @param string $caption
+     * @return this
      */
     public function setCaption($caption)
     {
         $this->caption = $caption;
 
-        return true;
+        return $this;
     }
 
     /**
-     * @return string||null
+     * @param string $action
+     * @return this
      */
     public function setAction($action)
     {
         $this->action = $action;
 
-        return true;
+        return $this;
     }
 
     /**
-     * @return int||null
+     * @param int $countClicks
+     * @return this
      */
     public function setCountClicks($countClicks)
     {
@@ -64,11 +69,12 @@ trait ViberAddition
             $this->countClicks = 1;
         }
 
-        return true;
+        return $this;
     }
 
     /**
-     * @return int||null
+     * @param int $isTransactional
+     * @return this
      */
     public function setTransactional($isTransactional)
     {
@@ -76,11 +82,12 @@ trait ViberAddition
             $this->isTransactional = 1;
         }
 
-        return true;
+        return $this;
     }
 
     /**
-     * @return string||null
+     * @param string $viberReplaceText
+     * @return this
      */
     public function setViberText($viberReplaceText)
     {
@@ -88,6 +95,6 @@ trait ViberAddition
             $this->viberReplaceText = $viberReplaceText;
         }
 
-        return true;
+        return $this;
     }
 }

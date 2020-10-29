@@ -67,7 +67,7 @@ TurboSMS::setSMSSender('TAXI');
 TurboSMS::setViberSender('Mobibon2');
 ```
 
-- `setStartTime($startTime)` - `carbon||string` дата и время отправки сообщения.
+- `setStartTime($startTime)` - `carbon|string` дата и время отправки сообщения.
 В конфиге задается режим сна и промежуток времени. В режиме сна, сообщения будут откладываться
 ```php
 TurboSMS::setStartTime('2020-10-10 08:22');
@@ -103,12 +103,12 @@ TurboSMS::setCaption('Открыть сайт');
 TurboSMS::setAction('https://www.google.com');
 ```
 
-- `setCountClicks($countClicks)` - `string||int` Флаг статистики переходов (1 - да, остальное - нет)
+- `setCountClicks($countClicks)` - `string|int` Флаг статистики переходов (1 - да, остальное - нет)
 ```php
 TurboSMS::setCountClicks(1);
 ```
 
-- `setTransactional($isTransactional)` - `string||int` Флаг транзакционного сообщения (1 - да, остальное - нет)
+- `setTransactional($isTransactional)` - `string|int` Флаг транзакционного сообщения (1 - да, остальное - нет)
 ```php
 TurboSMS::setTransactional(1);
 ```
@@ -132,7 +132,7 @@ dd($balance);
 //100500.22 or null
 ```
 
-#### Получение статуса `message_id` принимает `array || string`
+#### Получение статуса `message_id` принимает `array | string`
 
 ```php
 $status = TurboSMS::getItemsStatus($messageId);

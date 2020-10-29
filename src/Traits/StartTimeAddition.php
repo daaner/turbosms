@@ -12,7 +12,8 @@ trait StartTimeAddition
     protected $startTime;
 
     /**
-     * @return string||null
+     * @param string|Carbon $startTime
+     * @return this
      */
     public function setStartTime($startTime)
     {
@@ -43,6 +44,6 @@ trait StartTimeAddition
 
         $this->startTime = $startTime->format('Y-m-d H:i');
 
-        return true;
+        return $this;
     }
 }

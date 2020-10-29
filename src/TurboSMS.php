@@ -31,7 +31,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @return integer||null
+     * @return integer|null
      */
     public function getBalance()
     {
@@ -52,7 +52,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @param string||array $messageId
+     * @param string|array $messageId
      * @return array
      */
     public function getItemsStatus($messageId)
@@ -73,9 +73,9 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @param string||array $recipients
+     * @param string|array $recipients
      * @param string $text
-     * @param string||null $type
+     * @param string|null $type
      * @return array
      */
     public function sendMessages($recipients, $text, $type = null)
@@ -192,9 +192,15 @@ class TurboSMS implements TurboSMSInterface
         return $this->api;
     }
 
+    /**
+     * @param string $api
+     * @return this
+     */
     public function setApi($api)
     {
         $this->api = $api;
+
+        return $this;
     }
 
     /**
@@ -209,13 +215,19 @@ class TurboSMS implements TurboSMSInterface
         return $this->viberSender;
     }
 
+    /**
+     * @param string $viberSender
+     * @return this
+     */
     public function setViberSender($viberSender)
     {
         $this->viberSender = $viberSender;
+
+        return $this;
     }
 
     /**
-     * @return null|string
+     * @return string $smsSender
      */
     public function getSMSSender()
     {
@@ -226,24 +238,42 @@ class TurboSMS implements TurboSMSInterface
         return $this->smsSender;
     }
 
+    /**
+     * @param string $smsSender
+     * @return this
+     */
     public function setSMSSender($smsSender)
     {
         $this->smsSender = $smsSender;
+
+        return $this;
     }
 
     /**
      * Убираем у телефонов пробелы, скобки, минусы и плюсы.
      */
+
+    /**
+     * @param string|array $phones
+     * @return array $phones
+     */
     public function phonesTrim($phones)
     {
-        $phones->transform(function ($item, $key) {
+
+        $phones->transform(function ($item) {
             return preg_replace('/[^0-9]/', '', $item);
         });
 
         return $phones;
     }
 
-    // Формируем $boby для SMS
+    /**
+     * Формируем $boby для SMS
+     *
+     * @param array $body
+     * @param string $text
+     * @return array $body
+     */
     public function bodySMS($body, $text)
     {
         $body['sms'] = [
@@ -254,7 +284,13 @@ class TurboSMS implements TurboSMSInterface
         return $body;
     }
 
-    // Формируем $boby для Viber
+    /**
+     * Формируем $boby для Viber
+     *
+     * @param array $body
+     * @param string $text
+     * @return array $body
+     */
     public function bodyViber($body, $text)
     {
         $msg = $text;
