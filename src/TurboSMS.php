@@ -221,7 +221,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @return null|string
+     * @return this
      */
     public function getViberSender()
     {
@@ -229,7 +229,7 @@ class TurboSMS implements TurboSMSInterface
             $this->viberSender = config('turbosms.viber_sender');
         }
 
-        return $this->viberSender;
+        return $this;
     }
 
     /**
@@ -244,7 +244,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @return string $smsSender
+     * @return this
      */
     public function getSMSSender()
     {
@@ -252,7 +252,7 @@ class TurboSMS implements TurboSMSInterface
             $this->smsSender = config('turbosms.sms_sender');
         }
 
-        return $this->smsSender;
+        return $this;
     }
 
     /**
