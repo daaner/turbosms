@@ -221,7 +221,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @return this
+     * @return $this
      */
     public function getViberSender()
     {
@@ -244,7 +244,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @return this
+     * @return $this
      */
     public function getSMSSender()
     {
