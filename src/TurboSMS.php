@@ -31,7 +31,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @return integer|null
+     * @return int|null
      */
     public function getBalance()
     {
@@ -210,7 +210,7 @@ class TurboSMS implements TurboSMSInterface
 
     /**
      * @param string $api
-     * @return this
+     * @return $this
      */
     public function setApi($api)
     {
@@ -233,7 +233,7 @@ class TurboSMS implements TurboSMSInterface
 
     /**
      * @param string $viberSender
-     * @return this
+     * @return $this
      */
     public function setViberSender($viberSender)
     {
@@ -256,7 +256,7 @@ class TurboSMS implements TurboSMSInterface
 
     /**
      * @param string $smsSender
-     * @return this
+     * @return $this
      */
     public function setSMSSender($smsSender)
     {
@@ -264,7 +264,6 @@ class TurboSMS implements TurboSMSInterface
 
         return $this;
     }
-
 
     /**
      * Убираем у телефонов пробелы, скобки, минусы и плюсы.
@@ -274,7 +273,6 @@ class TurboSMS implements TurboSMSInterface
      */
     public function phonesTrim($phones)
     {
-
         $phones->transform(function ($item) {
             return preg_replace('/[^0-9]/', '', $item);
         });
@@ -283,7 +281,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * Формируем $boby для SMS
+     * Формируем $boby для SMS.
      *
      * @param array $body
      * @param string $text
@@ -300,7 +298,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * Формируем $boby для Viber
+     * Формируем $boby для Viber.
      *
      * @param array $body
      * @param string $text
