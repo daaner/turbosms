@@ -6,6 +6,7 @@ use Daaner\TurboSMS\Contracts\TurboSMSInterface;
 use Daaner\TurboSMS\Traits\StartTimeAddition;
 use Daaner\TurboSMS\Traits\ViberAddition;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Collection;
 
 class TurboSMS implements TurboSMSInterface
 {
@@ -268,8 +269,8 @@ class TurboSMS implements TurboSMSInterface
     /**
      * Убираем у телефонов пробелы, скобки, минусы и плюсы.
      *
-     * @param string|array $phones
-     * @return array $phones
+     * @param Collection $phones
+     * @return Collection $phones
      */
     public function phonesTrim($phones)
     {

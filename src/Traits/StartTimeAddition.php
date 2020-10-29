@@ -22,13 +22,13 @@ trait StartTimeAddition
             try {
                 $startTime = Carbon::createFromFormat('Y-m-d H:i', $startTime);
             } catch (\Exception $e) {
-                return true;
+                return $this;
             }
         }
 
         //дата уже прошла, игнорируем установку и отправляем сейчас
         if ($startTime <= Carbon::now()) {
-            return true;
+            return $this;
         }
 
         if (config('turbosms.sleep_mode') && config('turbosms.max_hour') > config('turbosms.min_hour')) {
