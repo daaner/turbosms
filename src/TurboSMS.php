@@ -52,6 +52,22 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
+     * @return array
+     */
+    public function getBalanceJson()
+    {
+        $module = 'user';
+        $method = 'balance.json';
+
+        $url = $this->baseUri.$module.'/'.$method;
+        $body = [];
+
+        $answers = $this->getResponse($url, $body);
+
+        return $answers;
+    }
+
+    /**
      * @param string|array $messageId
      * @return array
      */
@@ -249,11 +265,10 @@ class TurboSMS implements TurboSMSInterface
         return $this;
     }
 
-    /**
-     * Убираем у телефонов пробелы, скобки, минусы и плюсы.
-     */
 
     /**
+     * Убираем у телефонов пробелы, скобки, минусы и плюсы.
+     *
      * @param string|array $phones
      * @return array $phones
      */

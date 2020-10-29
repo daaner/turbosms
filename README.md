@@ -132,6 +132,19 @@ dd($balance);
 //100500.22 or null
 ```
 
+#### `getBalanceJson(): return array`  - получение баланса в JSON
+
+```php
+$balance = TurboSMS::getBalanceJson();
+
+//or
+
+TurboSMS::setApi('MY_TURBOSMS_API_KEY_2');
+$balance = TurboSMS::getBalanceJson($otherApiKey);
+
+dd($balance);
+```
+
 #### Получение статуса `message_id` принимает `array | string`
 
 ```php
