@@ -159,8 +159,8 @@ class TurboSMS implements TurboSMSInterface
             ];
         }
 
-        $response = Http::timeout(3)
-            ->retry(2, 200)
+        $response = Http::timeout(config('turbosms.http_response_timeout'))
+            ->retry(config('turbosms.http_retry_max_time'), config('turbosms.http_retry_delay'))
             ->withHeaders([
                 'Accept' => 'application/json',
                 'Authorization' => 'Bearer '.$this->api,
