@@ -57,7 +57,7 @@ return [
     'max_hour' => 21,
 
     /**
-     * Тонкая настройка HTTP client
+     * Тонкая настройка HTTP client.
      *
      * http_response_timeout - maximum number of seconds to wait for a response
      * http_retry_max_time - the maximum number of times the request should be attempted
