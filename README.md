@@ -250,7 +250,7 @@ TurboSMS::setCaption('Открыть сайт с котиками');
 TurboSMS::setAction('https://www.google.com');
 TurboSMS::setCountClicks(1);
 TurboSMS::setTransactional(1);
-TurboSMS::setStartTime('lalala'); //про игнорируется
+TurboSMS::setStartTime('lalala'); //проигнорируется
 TurboSMS::setStartTime('2020-10-10 08:22'); //установит дату и время отправки, если она больше текущей
 TurboSMS::setViberText('Этот текст будет получен только в Viber');
 $sended = TurboSMS::sendMessages($ph, 'Привет в SMS. В Вайбере не отправится', 'both');
