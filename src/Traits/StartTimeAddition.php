@@ -12,8 +12,8 @@ trait StartTimeAddition
     protected $startTime;
 
     /**
-     * @param string|Carbon $startTime
-     * @return this
+     * @param  string|Carbon  $startTime
+     * @return $this
      */
     public function setStartTime($startTime)
     {
