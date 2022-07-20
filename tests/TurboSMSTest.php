@@ -19,8 +19,8 @@ class TurboSMSTest extends TestCase
     }
 
     /**
-     * @covers TurboSMS::setApi($api)
-     * @covers TurboSMS::getApi()
+     * @covers TurboSMS::setApi
+     * @covers TurboSMS::getApi
      *
      * @return void
      */
@@ -32,7 +32,7 @@ class TurboSMSTest extends TestCase
     }
 
     /**
-     * @covers TurboSMS::getApi()
+     * @covers TurboSMS::getApi
      *
      * @return void
      */
@@ -42,8 +42,8 @@ class TurboSMSTest extends TestCase
     }
 
     /**
-     * @covers TurboSMS::setViberSender($sender)
-     * @covers TurboSMS::getViberSender()
+     * @covers TurboSMS::setViberSender
+     * @covers TurboSMS::getViberSender
      *
      * @return void
      */
@@ -55,7 +55,7 @@ class TurboSMSTest extends TestCase
     }
 
     /**
-     * @covers TurboSMS::getViberSender()
+     * @covers TurboSMS::getViberSender
      *
      * @return void
      */
@@ -65,8 +65,8 @@ class TurboSMSTest extends TestCase
     }
 
     /**
-     * @covers TurboSMS::setSMSSender($sender)
-     * @covers TurboSMS::getSMSSender()
+     * @covers TurboSMS::setSMSSender
+     * @covers TurboSMS::getSMSSender
      *
      * @return void
      */
@@ -78,7 +78,7 @@ class TurboSMSTest extends TestCase
     }
 
     /**
-     * @covers TurboSMS::getSMSSender()
+     * @covers TurboSMS::getSMSSender
      *
      * @return void
      */
