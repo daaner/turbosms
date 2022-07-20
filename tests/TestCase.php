@@ -6,10 +6,8 @@ use Daaner\TurboSMS\Facades\TurboSMS;
 use Daaner\TurboSMS\TurboSMSServiceProvider as ServiceProvider;
 use Orchestra\Testbench\TestCase as TestbenchTestCase;
 
-
 abstract class TestCase extends TestbenchTestCase
 {
-
     protected function getPackageProviders($app): array
     {
         return [ServiceProvider::class];

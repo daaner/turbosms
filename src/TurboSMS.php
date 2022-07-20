@@ -67,7 +67,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @param string|array $messageId
+     * @param  string|array  $messageId
      * @return array
      */
     public function getItemsStatus($messageId): array
@@ -86,9 +86,9 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @param string|array $recipients
-     * @param string $text
-     * @param string|null $type
+     * @param  string|array  $recipients
+     * @param  string  $text
+     * @param  string|null  $type
      * @return array
      */
     public function sendMessages($recipients, string $text, string $type = null): array
@@ -136,8 +136,8 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @param string $url
-     * @param array $body
+     * @param  string  $url
+     * @param  array  $body
      * @return array
      */
     public function getResponse(string $url, array $body): array
@@ -204,7 +204,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @param string $api
+     * @param  string  $api
      * @return $this
      */
     public function setApi(string $api): self
@@ -227,7 +227,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @param string $viberSender
+     * @param  string  $viberSender
      * @return $this
      */
     public function setViberSender(string $viberSender): self
@@ -250,7 +250,7 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @param string $smsSender
+     * @param  string  $smsSender
      * @return $this
      */
     public function setSMSSender(string $smsSender): self
@@ -263,7 +263,7 @@ class TurboSMS implements TurboSMSInterface
     /**
      * Убираем у телефонов пробелы, скобки, минусы и плюсы.
      *
-     * @param Collection $phones
+     * @param  Collection  $phones
      * @return Collection $phones
      */
     public function phonesTrim(Collection $phones): Collection
@@ -278,8 +278,8 @@ class TurboSMS implements TurboSMSInterface
     /**
      * Формируем $body для SMS.
      *
-     * @param array $body
-     * @param string $text
+     * @param  array  $body
+     * @param  string  $text
      * @return array $body
      */
     public function bodySMS(array $body, string $text): array
@@ -295,8 +295,8 @@ class TurboSMS implements TurboSMSInterface
     /**
      * Формируем $body для Viber.
      *
-     * @param array $body
-     * @param string $text
+     * @param  array  $body
+     * @param  string  $text
      * @return array $body
      */
     public function bodyViber(array $body, string $text): array

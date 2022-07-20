@@ -3,11 +3,9 @@
 namespace Daaner\TurboSMS\Tests;
 
 use Daaner\TurboSMS\TurboSMS;
-use Mockery;
 
 class TurboSMSTest extends TestCase
 {
-
     /**
      * @var TurboSMS
      */
@@ -20,10 +18,10 @@ class TurboSMSTest extends TestCase
         $this->serv = new TurboSMS();
     }
 
-
     /**
      * @covers TurboSMS::setApi($api)
      * @covers TurboSMS::getApi()
+     *
      * @return void
      */
     public function test_set_get_api()
@@ -35,6 +33,7 @@ class TurboSMSTest extends TestCase
 
     /**
      * @covers TurboSMS::getApi()
+     *
      * @return void
      */
     public function test_get_empty_api()
@@ -42,10 +41,10 @@ class TurboSMSTest extends TestCase
         $this->assertEquals(config('turbosms.api_key'), $this->serv->getApi());
     }
 
-
     /**
      * @covers TurboSMS::setViberSender($sender)
      * @covers TurboSMS::getViberSender()
+     *
      * @return void
      */
     public function test_set_get_ViberSender()
@@ -57,6 +56,7 @@ class TurboSMSTest extends TestCase
 
     /**
      * @covers TurboSMS::getViberSender()
+     *
      * @return void
      */
     public function test_get_empty_ViberSender()
@@ -67,6 +67,7 @@ class TurboSMSTest extends TestCase
     /**
      * @covers TurboSMS::setSMSSender($sender)
      * @covers TurboSMS::getSMSSender()
+     *
      * @return void
      */
     public function test_set_get_SMSSender()
@@ -78,12 +79,11 @@ class TurboSMSTest extends TestCase
 
     /**
      * @covers TurboSMS::getSMSSender()
+     *
      * @return void
      */
     public function test_get_empty_SMSSender()
     {
         $this->assertEquals(config('turbosms.sms_sender'), $this->serv->getSMSSender());
     }
-
 }
-
