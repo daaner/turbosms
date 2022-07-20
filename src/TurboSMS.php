@@ -34,7 +34,7 @@ class TurboSMS implements TurboSMSInterface
     /**
      * @return int|null
      */
-    public function getBalance()
+    public function getBalance(): ?int
     {
         $balance = null;
         $module = 'user';
@@ -55,7 +55,7 @@ class TurboSMS implements TurboSMSInterface
     /**
      * @return array
      */
-    public function getBalanceJson()
+    public function getBalanceJson(): array
     {
         $module = 'user';
         $method = 'balance.json';
@@ -63,16 +63,14 @@ class TurboSMS implements TurboSMSInterface
         $url = $this->baseUri.$module.'/'.$method;
         $body = [];
 
-        $answers = $this->getResponse($url, $body);
-
-        return $answers;
+        return $this->getResponse($url, $body);
     }
 
     /**
      * @param string|array $messageId
      * @return array
      */
-    public function getItemsStatus($messageId)
+    public function getItemsStatus($messageId): array
     {
         $module = 'message';
         $method = 'status.json';
@@ -84,9 +82,7 @@ class TurboSMS implements TurboSMSInterface
             'messages' => $messages,
         ];
 
-        $answers = $this->getResponse($url, $body);
-
-        return $answers;
+        return $this->getResponse($url, $body);
     }
 
     /**
@@ -95,7 +91,7 @@ class TurboSMS implements TurboSMSInterface
      * @param string|null $type
      * @return array
      */
-    public function sendMessages($recipients, $text, $type = null)
+    public function sendMessages($recipients, string $text, string $type = null): array
     {
         $module = 'message';
         $method = 'send.json';
@@ -136,9 +132,7 @@ class TurboSMS implements TurboSMSInterface
             $body['start_time'] = $this->startTime;
         }
 
-        $answers = $this->getResponse($url, $body);
-
-        return $answers;
+        return $this->getResponse($url, $body);
     }
 
     /**
@@ -146,7 +140,7 @@ class TurboSMS implements TurboSMSInterface
      * @param array $body
      * @return array
      */
-    public function getResponse($url, $body)
+    public function getResponse(string $url, array $body): array
     {
         if ($this->isTest) {
             return [
@@ -200,7 +194,7 @@ class TurboSMS implements TurboSMSInterface
     /**
      * @return null|string
      */
-    public function getApi()
+    public function getApi(): ?string
     {
         if (is_null($this->api)) {
             $this->api = config('turbosms.api_key');
@@ -213,7 +207,7 @@ class TurboSMS implements TurboSMSInterface
      * @param string $api
      * @return $this
      */
-    public function setApi($api)
+    public function setApi(string $api): self
     {
         $this->api = $api;
 
@@ -221,22 +215,22 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @return $this
+     * @return string|null
      */
-    public function getViberSender()
+    public function getViberSender(): ?string
     {
         if (is_null($this->viberSender)) {
             $this->viberSender = config('turbosms.viber_sender');
         }
 
-        return $this;
+        return $this->viberSender;
     }
 
     /**
      * @param string $viberSender
      * @return $this
      */
-    public function setViberSender($viberSender)
+    public function setViberSender(string $viberSender): self
     {
         $this->viberSender = $viberSender;
 
@@ -244,22 +238,22 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @return $this
+     * @return string
      */
-    public function getSMSSender()
+    public function getSMSSender(): ?string
     {
         if (is_null($this->smsSender)) {
             $this->smsSender = config('turbosms.sms_sender');
         }
 
-        return $this;
+        return $this->smsSender;
     }
 
     /**
      * @param string $smsSender
      * @return $this
      */
-    public function setSMSSender($smsSender)
+    public function setSMSSender(string $smsSender): self
     {
         $this->smsSender = $smsSender;
 
@@ -272,7 +266,7 @@ class TurboSMS implements TurboSMSInterface
      * @param Collection $phones
      * @return Collection $phones
      */
-    public function phonesTrim($phones)
+    public function phonesTrim(Collection $phones): Collection
     {
         $phones->transform(function ($item) {
             return preg_replace('/[^0-9]/', '', $item);
@@ -282,13 +276,13 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * Формируем $boby для SMS.
+     * Формируем $body для SMS.
      *
      * @param array $body
      * @param string $text
      * @return array $body
      */
-    public function bodySMS($body, $text)
+    public function bodySMS(array $body, string $text): array
     {
         $body['sms'] = [
             'sender' => $this->smsSender,
@@ -299,13 +293,13 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * Формируем $boby для Viber.
+     * Формируем $body для Viber.
      *
      * @param array $body
      * @param string $text
      * @return array $body
      */
-    public function bodyViber($body, $text)
+    public function bodyViber(array $body, string $text): array
     {
         $msg = $text;
         if ($this->viberReplaceText) {
