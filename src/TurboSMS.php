@@ -192,9 +192,9 @@ class TurboSMS implements TurboSMSInterface
     // =================== SUPPORT ===================
 
     /**
-     * @return null|string
+     * @return string
      */
-    public function getApi(): ?string
+    public function getApi(): string
     {
         if (is_null($this->api)) {
             $this->api = config('turbosms.api_key');
@@ -215,9 +215,9 @@ class TurboSMS implements TurboSMSInterface
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getViberSender(): ?string
+    public function getViberSender(): string
     {
         if (is_null($this->viberSender)) {
             $this->viberSender = config('turbosms.viber_sender');
