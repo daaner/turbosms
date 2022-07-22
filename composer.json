@@ -25,9 +25,14 @@
             "Daaner\\TurboSMS\\Tests\\": "tests/"
         }
     },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
     "require-dev": {
-        "orchestra/testbench": ">7.6",
-        "phpunit/phpunit": ">9.5"
+        "orchestra/testbench": ">=3.5",
+        "phpunit/phpunit": ">=7.0"
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
