@@ -16,21 +16,21 @@ trait ViberAddition
     protected $viberReplaceText;
 
     /**
-     * @param  int  $ttl
+     * @param int $ttl
      * @return $this
      */
-    public function setTTL($ttl)
+    public function setTTL(int $ttl): self
     {
-        $this->ttl = (int) $ttl;
+        $this->ttl = $ttl;
 
         return $this;
     }
 
     /**
-     * @param  string  $image
+     * @param string $image
      * @return $this
      */
-    public function setImageURL($image)
+    public function setImageURL(string $image): self
     {
         $this->imageUrl = $image;
 
@@ -38,10 +38,10 @@ trait ViberAddition
     }
 
     /**
-     * @param  string  $caption
+     * @param string $caption
      * @return $this
      */
-    public function setCaption($caption)
+    public function setCaption(string $caption): self
     {
         $this->caption = $caption;
 
@@ -49,10 +49,10 @@ trait ViberAddition
     }
 
     /**
-     * @param  string  $action
+     * @param string $action
      * @return $this
      */
-    public function setAction($action)
+    public function setAction(string $action): self
     {
         $this->action = $action;
 
@@ -60,10 +60,10 @@ trait ViberAddition
     }
 
     /**
-     * @param  int  $countClicks
+     * @param int $countClicks
      * @return $this
      */
-    public function setCountClicks($countClicks)
+    public function setCountClicks(int $countClicks): self
     {
         if ($countClicks) {
             $this->countClicks = 1;
@@ -73,10 +73,10 @@ trait ViberAddition
     }
 
     /**
-     * @param  int  $isTransactional
+     * @param int $isTransactional
      * @return $this
      */
-    public function setTransactional($isTransactional)
+    public function setTransactional(int $isTransactional): self
     {
         if ($isTransactional) {
             $this->isTransactional = 1;
@@ -86,10 +86,10 @@ trait ViberAddition
     }
 
     /**
-     * @param  string  $viberReplaceText
+     * @param string $viberReplaceText
      * @return $this
      */
-    public function setViberText($viberReplaceText)
+    public function setViberText(string $viberReplaceText): self
     {
         if ($viberReplaceText) {
             $this->viberReplaceText = $viberReplaceText;

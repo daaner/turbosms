@@ -3,6 +3,7 @@
 namespace Daaner\TurboSMS\Traits;
 
 use Carbon\Carbon;
+use Exception;
 
 trait StartTimeAddition
 {
@@ -15,13 +16,13 @@ trait StartTimeAddition
      * @param  string|Carbon  $startTime
      * @return $this
      */
-    public function setStartTime($startTime)
+    public function setStartTime($startTime): self
     {
         //ошибка в дате отправки, игнорируем установку
         if (! $startTime instanceof Carbon) {
             try {
                 $startTime = Carbon::createFromFormat('Y-m-d H:i', $startTime);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 return $this;
             }
         }

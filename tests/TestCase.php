@@ -18,11 +18,6 @@ abstract class TestCase extends TestbenchTestCase
         return ['TurboSMS' => TurboSMS::class];
     }
 
-    protected function resolveApplicationConfiguration($app): void
-    {
-        parent::resolveApplicationConfiguration($app);
-    }
-
     protected function setUp(): void
     {
         parent::setUp();
