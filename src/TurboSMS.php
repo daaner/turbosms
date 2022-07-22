@@ -197,7 +197,7 @@ class TurboSMS implements TurboSMSInterface
     public function getApi(): string
     {
         if (is_null($this->api)) {
-            $this->api = config('turbosms.api_key');
+            $this->api = (string) config('turbosms.api_key');
         }
 
         return $this->api;
@@ -220,7 +220,7 @@ class TurboSMS implements TurboSMSInterface
     public function getViberSender(): string
     {
         if (is_null($this->viberSender)) {
-            $this->viberSender = config('turbosms.viber_sender');
+            $this->viberSender = (string) config('turbosms.viber_sender');
         }
 
         return $this->viberSender;
