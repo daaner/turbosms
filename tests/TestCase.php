@@ -8,12 +8,12 @@ use Orchestra\Testbench\TestCase as TestbenchTestCase;
 
 abstract class TestCase extends TestbenchTestCase
 {
-    protected function getPackageProviders($app): array
+    protected function getPackageProviders(/** @scrutinizer ignore-unused */ $app): array
     {
         return [ServiceProvider::class];
     }
 
-    protected function getPackageAliases($app): array
+    protected function getPackageAliases(/** @scrutinizer ignore-unused */ $app): array
     {
         return ['TurboSMS' => TurboSMS::class];
     }
