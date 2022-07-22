@@ -16,7 +16,7 @@ trait ViberAddition
     protected $viberReplaceText;
 
     /**
-     * @param int $ttl
+     * @param  int  $ttl
      * @return $this
      */
     public function setTTL(int $ttl): self
@@ -27,7 +27,7 @@ trait ViberAddition
     }
 
     /**
-     * @param string $image
+     * @param  string  $image
      * @return $this
      */
     public function setImageURL(string $image): self
@@ -38,7 +38,7 @@ trait ViberAddition
     }
 
     /**
-     * @param string $caption
+     * @param  string  $caption
      * @return $this
      */
     public function setCaption(string $caption): self
@@ -49,7 +49,7 @@ trait ViberAddition
     }
 
     /**
-     * @param string $action
+     * @param  string  $action
      * @return $this
      */
     public function setAction(string $action): self
@@ -60,7 +60,7 @@ trait ViberAddition
     }
 
     /**
-     * @param int $countClicks
+     * @param  int  $countClicks
      * @return $this
      */
     public function setCountClicks(int $countClicks): self
@@ -73,7 +73,7 @@ trait ViberAddition
     }
 
     /**
-     * @param int $isTransactional
+     * @param  int  $isTransactional
      * @return $this
      */
     public function setTransactional(int $isTransactional): self
@@ -86,7 +86,7 @@ trait ViberAddition
     }
 
     /**
-     * @param string $viberReplaceText
+     * @param  string  $viberReplaceText
      * @return $this
      */
     public function setViberText(string $viberReplaceText): self
