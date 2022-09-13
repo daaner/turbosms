@@ -170,7 +170,7 @@ class TurboSMS implements TurboSMSInterface
         }
 
         $answer = $response->json();
-        if (! isset($answer['response_result']) || ! $answer['response_result']) {
+        if (!$answer || ! isset($answer['response_result']) || ! $answer['response_result']) {
             $error = __('turbosms::turbosms.response_status.'.$answer['response_status']);
 
             return [
