@@ -171,7 +171,12 @@ class TurboSMS implements TurboSMSInterface
 
         $answer = $response->json();
         if (! $answer || ! isset($answer['response_result']) || ! $answer['response_result']) {
-            $error = __('turbosms::turbosms.response_status.'.$answer['response_status']);
+
+            $error = __('turbosms::turbosms.response_status.FAILED_CONVERT_RESULT2JSON');
+
+            if (isset($answer['response_status']) && $answer['response_status']) {
+                $error = __('turbosms::turbosms.response_status.'.$answer['response_status']);
+            }
 
             return [
                 'success' => false,
