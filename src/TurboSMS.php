@@ -40,6 +40,9 @@ class TurboSMS implements TurboSMSInterface
         $module = 'user';
         $method = 'balance.json';
 
+        /** Для проверки баланса снимаем режим DEV */
+        $this->isTest = false;
+
         $url = $this->baseUri.$module.'/'.$method;
         $body = [];
 
@@ -59,6 +62,9 @@ class TurboSMS implements TurboSMSInterface
     {
         $module = 'user';
         $method = 'balance.json';
+
+        /** Для проверки баланса снимаем режим DEV */
+        $this->isTest = false;
 
         $url = $this->baseUri.$module.'/'.$method;
         $body = [];
